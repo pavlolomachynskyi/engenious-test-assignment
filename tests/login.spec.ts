@@ -1,4 +1,4 @@
-import { test } from './fixtures';
+import { test } from '../fixtures';
 
 // Task 2: Automate the login process on Engenious University.
 // Precondition: a registered user (credentials in .env). Chrome only.

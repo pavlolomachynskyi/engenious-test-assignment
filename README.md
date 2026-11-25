@@ -49,8 +49,8 @@ The test steps follow the test case in order, so the HTML report reads like the 
 
 ## Design notes
 
-- **Page Object Model** (`tests/pages/`): each page defines its locators once, in its constructor. The test only calls page methods and makes assertions.
-- **Fixtures** (`tests/fixtures/`): the page objects and the credentials are injected into the test.
+- **Page Object Model** (`pages/`): each page defines its locators once, in its constructor. The test only calls page methods and makes assertions.
+- **Fixtures** (`fixtures/`): the page objects and the credentials are injected into the test.
 - **Cookie banner:** an automatic fixture uses `page.addLocatorHandler` to dismiss the consent dialog whenever it appears. While the dialog is open, it hides the rest of the page from role-based locators.
 - **Locators:** user-facing `getByRole` locators only. No CSS classes or XPath, because the app's class names are generated at build time.
 - **Waiting:** web-first assertions (`await expect(...)`) only. There are no fixed waits.
@@ -59,10 +59,9 @@ The test steps follow the test case in order, so the HTML report reads like the 
 ## Project structure
 
 ```
-tests/
-  login.spec.ts             The automated login test
-  pages/                    Page objects: home, login, dashboard
-  fixtures/index.ts         Test fixtures: page objects, credentials, cookie banner
-  helpers/credentials.ts    Reads the test account from .env
+tests/login.spec.ts         The automated login test
+pages/                      Page objects: home, login, dashboard
+fixtures/index.ts           Test fixtures: page objects, credentials, cookie banner
+helpers/credentials.ts      Reads the test account from .env
 playwright.config.ts        Google Chrome only, HTML report, traces on failure
 ```
