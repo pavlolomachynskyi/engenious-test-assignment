@@ -1,0 +1,22 @@
+{
+  "name": "engenious-test-assignment",
+  "version": "1.0.0",
+  "description": "Engenious University QA assessment, Task 2: automated login test with Playwright and TypeScript (Chrome only)",
+  "private": true,
+  "license": "UNLICENSED",
+  "type": "commonjs",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report",
+    "typecheck": "tsc --noEmit",
+    "install:chrome": "playwright install chrome"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.1",
+    "@types/node": "26.6.10",
+    "dotenv": "18.0.10",
+    "typescript": "7.0.2"
+  }
+}
