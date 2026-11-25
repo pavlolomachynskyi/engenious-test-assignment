@@ -40,7 +40,7 @@ The test steps follow the test case in order, so the HTML report reads like the 
 | Test case step | What the test does |
 |----------------|--------------------|
 | Open the Chrome browser | Playwright launches Google Chrome (`channel: 'chrome'` in `playwright.config.ts`). |
-| Navigate to https://university.engenious.io/ | Opens the home page and checks that the **Sign in** link is shown. |
+| Navigate to https://university.engenious.io/ | Opens the home page and checks that the address is exactly `/` and the **Sign in** link is shown. |
 | Click on the "Sign In" button | Clicks **Sign in** and checks that `/login` shows the Email field, the Password field and the Login button. |
 | Click on the "Log in" button | Selects the **Login** tab. The form is already shown after Sign in, but the test case asks for this click. |
 | Enter valid login credentials (Email and Password) | Types the email and the password. |
@@ -49,7 +49,7 @@ The test steps follow the test case in order, so the HTML report reads like the 
 
 ## Design notes
 
-- **Page Object Model** (`pages/`): each page defines its locators once, in its constructor. The test only calls page methods and makes assertions.
+- **Page Object Model** (`pages/`): each page defines its locators once, in its constructor. The test only calls page methods; the checks live in each page's `expectLoaded()`.
 - **Fixtures** (`fixtures/`): the page objects and the credentials are injected into the test.
 - **Cookie banner:** an automatic fixture uses `page.addLocatorHandler` to dismiss the consent dialog whenever it appears. While the dialog is open, it hides the rest of the page from role-based locators.
 - **Locators:** user-facing `getByRole` locators only. No CSS classes or XPath, because the app's class names are generated at build time.
